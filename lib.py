@@ -28,18 +28,24 @@ def mol2_reader(mol_file):  # does not handle H2
     
     return lines[first_atom_idx:last_atom_idx+1]
 
+class EmptySurfFileException(Exception):
+    def __init__(self, surf_file):
+        self.surf_file = surf_file
+    def __str__(self):
+        return f'Empty file {self.surf_file}'
 
 def readSurfPoints(surf_file):
     with open(surf_file,'r') as f:
         lines = f.readlines()
     
     lines = [l for l in lines if len(l.split())>7]
+    
+    if len(lines)==0:
+        raise EmptySurfFileException(surf_file)
+    
     if len(lines)>100000:
         print('Large size')
-        return
-    if len(lines)==0:
-        print('Empty file')
-        return
+
     
     coords = np.zeros((len(lines),3))
     normals = np.zeros((len(lines),3))
