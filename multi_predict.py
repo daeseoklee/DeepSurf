@@ -7,9 +7,9 @@ Created on Tue Feb 25 16:04:47 2020
 """
 
 import argparse, os
-from protein import Protein
-from network import Network
-from bsite_extraction import Bsite_extractor
+from .protein import Protein
+from .network import Network
+from .bsite_extraction import Bsite_extractor
 
 
 def parse_args():

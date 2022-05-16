@@ -7,8 +7,8 @@ Created on Thu Jan 30 12:45:54 2020
 """
 
 import os, numpy as np
-import pybel
-from lib import simplify_dms, mol2_reader
+from openbabel import pybel
+from .lib import simplify_dms, mol2_reader
 
 
 class Protein:

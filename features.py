@@ -6,10 +6,9 @@ Created on Mon Oct 21 11:46:54 2019
 @author: smylonas
 """
 
-import tfbio_data 
-from lib import rotation
+from . import tfbio_data 
+from .lib import rotation
 import numpy as np
-     
 
 class KalasantyFeaturizer:
     def __init__(self,gridSize,voxelSize):
